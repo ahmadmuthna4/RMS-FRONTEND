@@ -1,0 +1,267 @@
+.report_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 1rem 0;
+    margin-top: 30px;
+}
+.report_container .form  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+}
+.report_container .form form  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.report_container .form form input {
+    border: 1px solid #5644fc5c;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 400px;
+    outline: none;
+}
+.report_container .form button {
+    width: 45%;
+    cursor: pointer;
+    display: block;
+    padding: 6px;
+    background: #5644FC;
+    border-radius: 5rem;
+    color: #ffffff;
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+.report_container .form button:hover {
+    width: 55%;
+    background: #9a9494;
+    color: #000000;
+}
+
+
+
+.report_container .researchs {
+    
+    display: flex;
+    /* justify-content: space-between; */
+    
+}
+.report_container .researchs  .research{
+    
+    margin-right: 12px;
+    
+}
+
+.report_container .researchs .box {
+    height: 100%;
+    width: 22%;
+    border-radius: 1rem;
+    margin: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    /* background-color: #000000; */
+}
+
+.report_container .researchs  .VertCard{
+    width: 236px; 
+    height: 226px; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    display: flex;
+
+}
+
+.report_container .researchs  .Image{
+    align-self: stretch; 
+    height: 48px; 
+    background: #4A3AFF
+
+}
+.report_container .researchs  .Content{
+    align-self: stretch;
+    height: 94px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background: #F7F6FA;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; gap: 8px;
+    display: flex;
+    position: relative;
+
+}
+.report_container .researchs  .Avatar{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    position: absolute;
+    top: -31px ;
+    right: 28px;
+
+}
+.report_container .researchs  .Username{
+    align-self: stretch; 
+    text-align: center; 
+    color: #2A282F; 
+    font-size: 16px; 
+    font-family: Inter; 
+    font-weight: 600; 
+    word-wrap: break-word;
+
+}
+.report_container .researchs  .ResearchName{
+    align-self: stretch; 
+    text-align: center; 
+    color: #625F68; 
+    font-size: 16px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    word-wrap: break-word;
+
+}
+
+.report_container .researchs   .Button{
+    align-self: stretch; 
+    height: 48px; 
+    padding: 16px; 
+    background: #F7F6FA; 
+    border-top: 0.50px #E2DEE9 solid; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    gap: 8px; 
+    display: flex;
+
+}
+.report_container .researchs  .Details{
+    align-self: stretch; 
+    text-align: center; 
+    color: #625F68; 
+    font-size: 13px; 
+    font-family: Inter; 
+    font-weight: 500; 
+    word-wrap: break-word;
+
+}
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:1200px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    .home {
+        padding: 1rem 4rem;
+    }
+   
+
+}
+
+@media (max-width:991px) {
+
+    header {
+        left: -120%;
+    }
+
+    #menu {
+        display: block;
+        border-radius: 4px;
+    }
+
+    header.toggle {
+        left: 0%;
+    }
+
+    body {
+        padding: 0;
+    }
+    .report_container .researchs .box {
+        width: 100%;
+        
+    }
+
+}
+
+@media (max-width:768px) {
+    .report_container .researchs {
+    
+        flex-direction: column;
+        
+    }
+
+    html {
+        font-size: 50%;
+    }
+    .box {
+        
+        width: 100%;
+        height: 100%;     
+        margin-top: 53px;
+        display: flex;
+        justify-content: center;
+        
+        
+    }
+     .research{
+       
+        box-shadow: 10px 10px 23px rgb(210, 234, 242);
+        
+    }
+   
+   
+    
+    
+
+}
+
+@media (max-width:400px) {
+
+    header {
+        width: 100vw;
+    }
+
+    .heading {
+        margin: 0 3rem;
+    }
+
+     .box {
+        width: 100%;
+    }
+
+   .box {
+        width: 100%;
+    }
+
+     .form {
+        margin: 3rem 0;
+    }
+
+}
+
+
+
+.box-container .content_aleart {
+    background-color: #5644FC;
+
+}

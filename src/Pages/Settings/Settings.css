@@ -1,0 +1,96 @@
+.update_information_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+.update_information_container .update_image{
+    width: 241px;
+    height: 271px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+}
+.update_information_container .update_image .icon{
+    width: 100px;
+    height: 100px;
+    background-color: #F5F4FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.update_information_container .update_image .icon i{
+    color: #5644FC;
+}
+.update_information_container .update_information{
+    height: 271px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    border-radius: 12px;
+    padding: 10px;
+    position: relative;
+}
+.update_information_container .update_information .title{
+    width: 100%;
+    padding-left: 4px;
+}
+.update_information_container .update_information .title h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+.update_information_container .update_information form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.update_information_container .update_information form input{
+    border: 1px solid #5644fc5c;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 400px;
+    outline: none;
+}
+.update_information_container .update_information .action {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.update_information_container .update_information .action button{
+    width: 45%;
+    cursor: pointer;
+    display: block;
+    padding: 6px;
+    background: #5644FC;
+    border-radius: 5rem;
+    color: #ffffff;
+}
+
+.update_information_container .update_information .action button:last-child {
+    
+    background: #FF5353;
+}
+.update_information_container .update_information .action button:hover{
+    background: #ffffff;
+    color:   #5644FC;
+}
+label{
+    position: absolute;
+    top: 6px;
+    left: 196px;
+}

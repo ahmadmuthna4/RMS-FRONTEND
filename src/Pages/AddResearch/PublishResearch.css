@@ -1,0 +1,118 @@
+.update_information_container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin-top: 39px;
+}
+
+.update_information_container .update_image{
+    width: 241px;
+    height: 271px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+}
+.update_information_container .update_image .icon{
+    width: 100px;
+    height: 100px;
+    background-color: #F5F4FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.update_information_container .update_image .icon i{
+    color: #5644FC;
+}
+.update_information_container .update_information{
+    height: 271px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    border-radius: 12px;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 60px;
+}
+.header{
+    width: 100%;
+    padding-left: 12px;
+}
+ .header button{
+    padding: 10px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    transition: width 0.5s;
+}
+.header button:hover{
+    box-shadow: 10px 10px 23px rgb(210, 234, 242);
+}
+ .header button.active{
+    
+    background-color: #5644FC;
+    color: #ffffff;
+}
+.update_information_container .update_information form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.update_information_container .update_information form input{
+    border: 1px solid #5644fc5c;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 400px;
+    outline: none;
+}
+ .action {
+    /* margin-top: 30px; */
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 10px;
+}
+
+.action button{
+    width: 45%;
+    cursor: pointer;
+    display: block;
+    padding: 6px;
+    background: #5644FC;
+    border-radius: 5rem;
+    color: #ffffff;
+}
+
+.action button:last-child {
+    
+    background: #FF5353;
+}
+ .action button:hover{
+    background: #ffffff;
+    color:   #5644FC;
+}
+
+@media (max-width:768px) {
+    .update_information_container{
+        
+        justify-content: center;
+        flex-direction: row-reverse;
+    }
+  
+
+}

@@ -1,0 +1,85 @@
+.nav  {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    padding: 5px;
+    margin-top: 10px;
+    align-items: center;
+   }
+ 
+ .nav .Group1 {
+     width: 400px; 
+     height: 50px; 
+     position: relative;
+   }
+ .nav .Group1 .Rectangle13{
+     padding-left: 4px;
+     width: 400px; 
+     height: 50px; 
+     left: 0px; 
+     top: 0px; 
+     position: absolute; 
+     background: white; 
+     box-shadow: 0px 4px 6px rgba(163, 161, 255, 0.16); 
+     border-radius: 10px
+   }
+ 
+ .nav .Group1  .Shape_search{
+     width: 29px; 
+     height: 29px; 
+     left: 368px;
+     top: 19px;
+ 
+     position: absolute; 
+   }
+ .nav .Group2  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ 
+   }
+ .nav .Group2 h2 {
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: bold;
+   }
+ .nav .Group2 .Avatar {
+     height: 5rem;
+     width: 5rem;
+     border-radius: 50%;
+     object-fit: cover;
+     margin-bottom: 1rem;
+     /* position: absolute;
+     top: -31px ;
+     right: 28px; */
+     background-color: #7472f4;
+ 
+   }
+
+
+
+
+   
+@media (max-width:768px) {
+
+    html {
+        font-size: 50%;
+    }
+    
+    .nav .Group1 .Rectangle13{
+        width: 200px; 
+        height: 30px; 
+      }
+    .nav .Group1  .Shape_search{
+       
+        left: 179px;
+        top: 11px;
+    
+    }
+    .nav .Group2 .Avatar {
+        margin-right: 55px;
+    
+      }
+    
+
+}
