@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/RMS-FRONTEND/static/css/main.5d1423ab.css",
+    "main.js": "/RMS-FRONTEND/static/js/main.84e16855.js",
+    "static/js/952.b585f394.chunk.js": "/RMS-FRONTEND/static/js/952.b585f394.chunk.js",
+    "static/js/856.63bc9f0d.chunk.js": "/RMS-FRONTEND/static/js/856.63bc9f0d.chunk.js",
+    "static/media/0.jpg": "/RMS-FRONTEND/static/media/0.eeb85d43ec0dffca223b.jpg",
+    "static/media/9.png": "/RMS-FRONTEND/static/media/9.063f51dd4039544990c3.png",
+    "static/media/bg3.jpg": "/RMS-FRONTEND/static/media/bg3.eae1e45108557735deb7.jpg",
+    "static/media/logo.png": "/RMS-FRONTEND/static/media/logo.25600343edde1e20ce15.png",
+    "index.html": "/RMS-FRONTEND/index.html",
+    "main.5d1423ab.css.map": "/RMS-FRONTEND/static/css/main.5d1423ab.css.map",
+    "main.84e16855.js.map": "/RMS-FRONTEND/static/js/main.84e16855.js.map",
+    "952.b585f394.chunk.js.map": "/RMS-FRONTEND/static/js/952.b585f394.chunk.js.map",
+    "856.63bc9f0d.chunk.js.map": "/RMS-FRONTEND/static/js/856.63bc9f0d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5d1423ab.css",
+    "static/js/main.84e16855.js"
+  ]
+}
