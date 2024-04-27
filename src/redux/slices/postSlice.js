@@ -1,25 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const postSlice = createSlice({
-  name: "post",
+const RegisteredResearchSlice = createSlice({
+  name: "RegisteredResearch",
   initialState: {
-    posts: [],
-    postsCount: null,
-    // postsCate: [],
+    RegisteredResearchs: [],
+    RegisteredResearchsCount: null,
+    RegisteredResearchsApprovedCount: null,
     loading: false,
-    isPostCreated: false,
-    post:null,
+    isRegisteredResearch2Created: false,
+    RegisteredResearch:null,
+    deleteMessage: null,
   },
   reducers: {
-    setPosts(state, action) {
-      state.posts = action.payload;
+    
+   RegisteredResearchs2(state, action) {
+      state.RegisteredResearchs = action.payload;
     },
-    setPostsCount(state, action) {
-      state.postsCount = action.payload;
+    setRegisteredResearchs2Count(state, action) {
+      state.RegisteredResearchsCount = action.payload;
     },
-    // setPostsCate(state, action) {
-    //   state.postsCate = action.payload;
-    // },
+    setRegisteredResearchs2ApprovedCount(state, action) {
+      state.RegisteredResearchsApprovedCount = action.payload;
+    },
+    
 
 
     setLoading(state) {
@@ -32,49 +35,36 @@ const postSlice = createSlice({
     },
 
 
-    setIsPostCreated(state) {
-      state.isPostCreated = true;
+    setIsRegisteredResearch2Created(state) {
+      state.isRegisteredResearch2Created = true;
       state.loading = false;
     },
 
 
-    clearIsPostCreated(state) {
-      state.isPostCreated = false;
+    clearIsRegisteredResearch2Created(state) {
+      state.isRegisteredResearch2Created = false;
     },
 
 
   
-    setPost(state,action) {
-      state.post = action.payload;
+    setRegisteredResearch2(state,action) {
+      state.RegisteredResearch = action.payload;
+    },
+    updateRegisteredResearch(state,action) {
+      state.RegisteredResearch = action.payload;
+    },
+    deleteRegisteredResearch(state,action) {
+      state.deleteMessage = action.payload;
     },
 
 
 
 
-    // setLike(state,action) {
-    //   state.post.likes = action.payload.likes;
-    // },
-    // deletePost(state,action) {
-    //   state.posts = state.posts.filter(p => p._id !== action.payload);
-    // },
-    // addCommentToPost(state,action) {
-    //   state.post.comments.push(action.payload);
-    // },
-    // updateCommentPost(state,action) {
-    //   state.post.comments = state.post.comments.map(commment => 
-    //     commment._id === action.payload._id ? action.payload : commment
-    //   )
-    // },
-    // deleteCommentFromPost(state, action) {
-    //   const comment = state.post.comments.find(c => c._id === action.payload);
-    //   const commentIndex = state.post.comments.indexOf(comment);
-
-    //   state.post.comments.splice(commentIndex, 1);
-    // }
+ 
   },
 });
 
-const postReducer = postSlice.reducer;
-const postActions = postSlice.actions;
+const RegisteredResearchReducer = RegisteredResearchSlice.reducer;
+const RegisteredResearchActions = RegisteredResearchSlice.actions;
 
-export { postActions, postReducer };
+export { RegisteredResearchActions, RegisteredResearchReducer };

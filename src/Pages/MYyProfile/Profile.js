@@ -12,24 +12,50 @@ import "./Profile.css"
 import img1 from "../../assets/bg3.jpg"
 import img2 from "../../assets/0.jpg"
 import { useState, useEffect } from "react";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams,useNavigate,Link } from "react-router-dom";
+
 import {
     // deleteProfile,
     getUserProfile,
     // uploadProfilePhoto,
   } from "../../redux/apiCalls/profileApiCall";
+import {
+    fetchRegisteredResearchs2,
+    getRegisteredResearchs2ApprovedCount,
+  } from "../../redux/apiCalls/postApiCall";
+import {
+    fetchPublishedResearchs2,
+    getPublishedResearchs2Count,
+    
+  } from "../../redux/apiCalls/postApiCall2";
+
 
 
 const Profile = () => {
+
+
     const dispatch = useDispatch();
     const { profile} = useSelector((state) => state.profile);
+    const { user} = useSelector((state) => state.auth);
+    const { RegisteredResearchs} = useSelector((state) => state.RegisteredResearch);
+    const { RegisteredResearchsApprovedCount} = useSelector((state) => state.RegisteredResearch);
+    const { PublishedResearchs} = useSelector((state) => state.PublishedResearch);
+    const { PublishedResearchsCount} = useSelector((state) => state.PublishedResearch);
+
 
     const { id } = useParams();
 
     useEffect(() => {
         dispatch(getUserProfile(id));
+        dispatch(fetchRegisteredResearchs2(user.token,1,id));
+        dispatch(getRegisteredResearchs2ApprovedCount(user.token,id));
+        dispatch(fetchPublishedResearchs2(user.token,1,id));
+        dispatch(getPublishedResearchs2Count(user.token,id));
+        console.log(PublishedResearchs)
         window.scrollTo(0, 0);
     }, [id]);
+
+   
 
     const navigate = useNavigate();
   return (
@@ -44,7 +70,12 @@ const Profile = () => {
                         <img src={profile?.profilePhoto?.url} alt="" className="Avatar" />
                         <h2>{profile?.userName}</h2>
                         <p>{profile?.email}</p>
-                        <i class="fas fa-cog fa-2x"></i>
+                        
+                        <Link
+                                className="buttton"
+                                to={`/Settings`}>
+                                <i class="fas fa-cog fa-2x"></i>
+                            </Link>
                     </div>
 
                     <div class="background_image">
@@ -59,55 +90,62 @@ const Profile = () => {
                     <div class="card_infrormation">
                         <div class="header_card">
                             <h3>Published research  </h3>
-                            <p>(123) All</p>
+\                            <Link
+                                className="buttton"
+                                to={`/Dashboard`}>
+                                <p>({PublishedResearchsCount}) All</p>
+                            </Link>
                         </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" />    
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
+
+                        {PublishedResearchs.map((item) => (
+                            
+                            <div class="content_card" key={item?._id}>
+                                <img src={profile?.profilePhoto?.url} alt="" className="Avatar" /> 
+                                <h3>{item?.ResearchName?.substring(0, 7)}..</h3>
+                                <Link
+                                    className="buttton"
+                                    to={`/publishedResearchSigle/Single/${item?._id}`}>
+                                    Full Review
+                                </Link>
+                            </div>
+                            
+                        ))}
+
+
+                                
                         </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" /> 
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
-                        </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" /> 
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
-                        </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" /> 
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
-                        </div>
-                    </div>
 
                     <div class="card_infrormation">
                         <div class="header_card">
                             <h3>Registered research</h3>
-                            <p>(123) All</p>
+                            {/* <p>({RegisteredResearchsApprovedCount}) All</p> */}
+                            <Link
+                                className="buttton"
+                                to={`/Dashboard/RegisteredResearch`}>
+                                <p>({RegisteredResearchsApprovedCount}) All</p>
+                            </Link>
                         </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" /> 
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
+
+
+                        {RegisteredResearchs.map((item) => (
+                        
+                        <div class="content_card" key={item?._id}>
+                            <img src={profile?.profilePhoto?.url} alt="" className="Avatar" /> 
+                            <h3>{item?.ResearchNameEnglish?.substring(0, 7)}..</h3>
+                            <Link
+                                className="buttton"
+                                to={`/researchsRegistere/Single/${item?._id}`}>
+                                Full Review
+                            </Link>
                         </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" /> 
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
-                        </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" /> 
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
-                        </div>
-                        <div class="content_card">
-                            <img src={img2} alt="" className="Avatar" /> 
-                            <h3>Research Name</h3>
-                            <button>Full Review</button>
-                        </div>
+                           
+                      ))}
+
+                     
+
+
+
+
                     </div>
 
 

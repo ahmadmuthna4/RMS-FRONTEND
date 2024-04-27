@@ -4,6 +4,7 @@ const profileSlice = createSlice({
   name: "profile",
   initialState: {
     profile: null,
+    deleteMessage: null,
     // loading: false,
     // isProfileDeleted: false,
     // usersCount:null,
@@ -21,6 +22,9 @@ const profileSlice = createSlice({
     updateProfile(state,action) {
       state.profile = action.payload;
     },
+    delete(state,action) {
+      state.deleteMessage = action.payload;
+   },
     // setLoading(state) {
     //   state.loading = true;
     // },

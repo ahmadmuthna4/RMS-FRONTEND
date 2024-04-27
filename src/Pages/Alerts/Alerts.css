@@ -3,10 +3,9 @@
     height: 132px;
     display: flex;
     justify-content: space-between;
-    border-radius: 19px;
     padding: 3px;
     background: #FFFF;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); */
     margin-bottom: 15px;
 }
 .box-container .content_aleart img{
@@ -19,7 +18,7 @@
 .box-container .content_aleart div{
     width: 66%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
 }
 .box-container .content_aleart div h2{

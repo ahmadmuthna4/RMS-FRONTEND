@@ -28,6 +28,15 @@
     width: 400px;
     outline: none;
 }
+.report_container .form form select {
+    border: 1px solid #5644fc5c;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 400px;
+    outline: none;
+}
 .report_container .form button {
     width: 45%;
     cursor: pointer;
@@ -51,6 +60,9 @@
     
     display: flex;
     /* justify-content: space-between; */
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content:center;
     
 }
 .report_container .researchs  .research{
@@ -61,13 +73,12 @@
 
 .report_container .researchs .box {
     height: 100%;
-    width: 22%;
+    /* width: 23%; */
     border-radius: 1rem;
     margin: 5px;
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    /* background-color: #000000; */
 }
 
 .report_container .researchs  .VertCard{
@@ -196,10 +207,10 @@
     body {
         padding: 0;
     }
-    .report_container .researchs .box {
+    /* .report_container .researchs .box {
         width: 100%;
         
-    }
+    } */
 
 }
 

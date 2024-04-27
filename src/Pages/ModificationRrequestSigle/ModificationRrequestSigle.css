@@ -1,0 +1,264 @@
+/* .post-details {
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.post-details-image-wrapper {
+    height: 400px;
+    margin-bottom: 30px;
+}
+
+.post-details-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.update-post-image-form button {
+   margin-left: 10px;
+   background-color: var(--secondary-color);
+   color: var(--main-color);
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 17px;
+   padding: 2px 5px;
+   border: 1px solid var(--blue-color);
+}
+
+.update-post-image {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--blue-color);
+    cursor: pointer;
+}
+
+.update-post-image i {
+    font-size: 21px;
+    margin-right: 3px;
+}
+
+.post-details-title {
+    text-align: center;
+    font-size: 40px;
+    color: var(--primary-color);
+    text-transform: capitalize;
+    margin: 10px 0;
+}
+
+.post-details-user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.post-details-user-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-details-user {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.post-details-user strong {
+    font-size: 21px;
+    color: var(--dark-color);
+}
+
+.post-details-user span {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+.post-details-description {
+    font-size: 21px;
+    line-height: 1.8;
+    color: var(--primary-color);
+}
+
+.post-details-icon-wrapper {
+    margin: 15px 0;
+    font-size: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--blue-color);
+}
+
+.post-details-icon-wrapper i {
+    cursor: pointer;
+}
+.Publish-parent{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.Publish{
+    margin: 100px;
+    background-color: #a5dc86;
+    padding: 13px;
+    border-radius: 10px;
+    width: 103px;
+    align-items: center;
+}
+.popup-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .popup-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1;
+  }
+
+  .popup-menu input {
+    display: block;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+
+@media (max-width: 820px) {
+    .post-details {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .post-details {
+        padding: 15px;
+    }
+
+    .post-details-image {
+        object-fit: cover;
+    }
+} */
+
+
+
+
+
+
+.box-container .content_aleart{
+    width: 848px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border-radius: 19px; */
+    padding: 70px;
+    background: #FFFF;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35); */
+    margin-bottom: 15px;
+}
+.box-container .content_aleart h2{
+    font-size: 20px;
+    margin: 10px;
+}
+.box-container .content_aleart .div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.box-container .content_aleart div p{
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    /* width: 180px; */
+    /* width: 100%; */
+    
+    color: green;
+    text-align: center;
+    margin: 5px;
+}
+.box-container .content_aleart hr{
+    margin-top: 34px;
+    margin-bottom: 34px;
+    margin-right: 7px;
+    width: 76%;
+    height: 1.5px;
+    background: black;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 ;
+}
+.th, .td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: right; /* Right-align text for Arabic */
+}
+.box-container .content_aleart div{
+    margin: 15px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.box-container .content_aleart .signature{
+    text-align: left;
+    margin: 50px 0;
+}
+
+button {
+    margin: 10px;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 2px 5px;
+    border: 1px solid var(--blue-color);
+    background-color: blue;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+
+@media (max-width:768px) {
+
+    .box-container .content_aleart h2{
+        font-size: 12px;
+       
+    }
+    
+
+}
+

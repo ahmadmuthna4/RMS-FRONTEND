@@ -31,6 +31,13 @@ const Sidebar = () => {
     };
   }, []); 
 
+  const [activeLink, setActiveLink] = useState(0);
+
+  const handleLinkClick = (index) => {
+    setActiveLink(index);
+    console.log(index)
+  };
+
   return (
     <>
       <header className={isMenuOpen ? 'toggle_sidebar' : ''}>
@@ -39,20 +46,20 @@ const Sidebar = () => {
           <h3 className="name">RMS</h3>
         </div>
   
+        
         <nav className="navbar">
-          <ul>
-          <Link to={'/Dashboard'} ><li><a href="#">Dashboard</a></li></Link>
-          <Link to={'/AddResearch'} ><li><a href="#">Add Research</a></li></Link>
-          <Link to={'/Alerts'} ><li><a href="#">ALL ALERTS</a></li></Link>
-          <Link to={`/profile/${user?._id}`} ><li><a href="#">MY PROFILE</a></li></Link>
-          <Link to={'/Settings'} ><li><a href="#">SETTINGS</a></li></Link>
-          <Link to={'/Report'} ><li><a href="#">REPORT</a></li></Link>
-            
-            {/* <li><a href="#ALL ALERTS">ALL ALERTS</a></li>
-            <li><a href="#MY PROFILE">MY PROFILE</a></li>
-            <li><a href="#SETTINGS">SETTINGS</a></li>
-            <li><a href="#REPORT">REPORT</a></li> */}
-          </ul>
+            <ul>
+              <li><Link to="/Dashboard" className={activeLink === 0 ? 'active' : ''} onClick={() => handleLinkClick(0)}>Dashboard</Link></li>
+              <li><Link to="/AddResearch" className={activeLink === 1 ? 'active' : ''} onClick={() => handleLinkClick(1)}>Add Research</Link></li>
+              {/* <li><Link to="/Alerts" className={activeLink === 2 ? 'active' : ''} onClick={() => handleLinkClick(2)}>ALL ALERTS</Link></li> */}
+              <li><Link to={`/profile/${user?._id}`} className={activeLink === 3 ? 'active' : ''} onClick={() => handleLinkClick(3)}>MY PROFILE</Link></li>
+              <li><Link to="/Settings" className={activeLink === 4 ? 'active' : ''} onClick={() => handleLinkClick(4)}>SETTINGS</Link></li>
+
+              {user?.isAdmin ? 
+              <li><Link to="/Report" className={activeLink === 5 ? 'active' : ''} onClick={() => handleLinkClick(5)}>REPORT</Link></li>
+               : ''}
+              {/* <li><Link to="/Report" className={activeLink === 5 ? 'active' : ''} onClick={() => handleLinkClick(5)}>REPORT</Link></li> */}
+            </ul>
         </nav>
   
         <nav className="navbar">

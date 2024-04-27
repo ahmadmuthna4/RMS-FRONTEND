@@ -118,7 +118,7 @@
 
 .create-post {
     width: 100%;
-    height: calc(100vh - 130px);
+    /* height: calc(100vh - 130px); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,6 +169,9 @@
     border-radius: 10px;
     padding: 10px;
     margin-top: 15px;
+}
+select{
+    color: #00000082;
 }
 
 /* Media Queries */

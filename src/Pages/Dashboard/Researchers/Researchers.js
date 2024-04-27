@@ -1,14 +1,71 @@
 import './Researchers.css'
 import Category from '../components/Category'
 
+import { ToastContainer } from "react-toastify";
+import { useParams, Link } from "react-router-dom";
 
+
+import { useEffect , useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchuserss2,getuserss2Count } from "../../../redux/apiCalls/usersApiCall";
+import { deleteUser } from "../../../redux/apiCalls/profileApiCall";
+
+
+
+
+const POST_PER_PAGE = 8;
 
 
 const Researchers = () => {
+
+    
+
+
+
+    const dispatch = useDispatch();
+    
+    const { userss } = useSelector(state => state.users);
+    const { user } = useSelector(state => state.auth);
+    const { id } = useParams();
+    console.log("////////////////////")
+    console.log(id)
+    console.log("///////////////////////////")
+    useEffect(() => {
+      if (user?.isAdmin) {
+        dispatch(fetchuserss2(user.token,1));
+    }
+      
+
+    }, []);
+
+  const { userssCount  } = useSelector(state => state.users);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pages = Math.ceil(userssCount / POST_PER_PAGE);
+
+  useEffect(() => {
+    dispatch(fetchuserss2(user.token,currentPage,user._id));
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  useEffect(() => {
+    dispatch(getuserss2Count(user.token));
+  }, []);
+
+  
+
+
+  const DELETE = (id) => {
+    console.log("delete")
+    dispatch(deleteUser(id));
+};
+
+
+
   return (
     <>
             
          <section class="portfolio" id="portfolio">
+         <ToastContainer />
 
 
 
@@ -17,122 +74,35 @@ const Researchers = () => {
             <Category title='Researchers' />
             <div class="box-container">
                 <table>
-                    <tr>
-                    <th>Id</th>
-                    <th>Email</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Action</th>
+                    <tr className='tr'>
+                    <th className='thh'>Id</th>
+                    <th className='thh'>Email</th>
+                    <th className='thh'>Firstname</th>
+                    <th className='thh'>Lastname</th>
+                    <th className='thh'>Action</th>
                     </tr>
-                    <tr>
-                    <td>1</td>
-                    <td>peter@example.com</td>
-                    <td>Peter</td>
-                    <td>Griffin</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>2</td>
-                    <td>lois@example.com</td>
-                    <td>Lois</td>
-                    <td>Griffin</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>3</td>
-                    <td>joe@example.com</td>
-                    <td>Joe</td>
-                    <td>Swanson</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>4</td>
-                    <td>cleveland@example.com</td>
-                    <td>Cleveland</td>
-                    <td>Brown</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>5</td>
-                    <td>user1@example.com</td>
-                    <td>User</td>
-                    <td>One</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>6</td>
-                    <td>user2@example.com</td>
-                    <td>User</td>
-                    <td>Two</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>7</td>
-                    <td>user3@example.com</td>
-                    <td>User</td>
-                    <td>Three</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>8</td>
-                    <td>user4@example.com</td>
-                    <td>User</td>
-                    <td>Four</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>9</td>
-                    <td>user4@example.com</td>
-                    <td>User</td>
-                    <td>Four</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>10</td>
-                    <td>user4@example.com</td>
-                    <td>User</td>
-                    <td>Four</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>11</td>
-                    <td>user4@example.com</td>
-                    <td>User</td>
-                    <td>Four</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>12</td>
-                    <td>user4@example.com</td>
-                    <td>User</td>
-                    <td>Four</td>
-                    <td>
-                        <button>Details</button>
-                    </td>
-                    </tr>
+
+
+                    {userss.map(user => 
+                        <tr className='tr'>
+                        <td className='tdd'>{user?._id}</td>
+                        <td className='tdd'>{user?.email}</td>
+                        <td className='tdd'>{user?.userName}</td>
+                        <td className='tdd'>Griffin</td>
+                        <td className='tdd'>
+                            <button onClick={() => DELETE(user?._id)} >Delete</button>
+                        </td>
+                        </tr>
+                        
+                    
+                    )}
+
+
+
+
                 </table>
+
+                
             </div>
 
         </section>

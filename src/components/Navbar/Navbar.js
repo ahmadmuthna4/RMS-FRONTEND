@@ -11,8 +11,8 @@ const Sidebar = () => {
     {user ?( <>
       <div className="nav">
           <div className="Group1" >
-              <input type="text" className="Rectangle13" placeholder="Search" />            
-              <div className="Shape_search" ><i className="fas fa-search "></i></div>
+              {/* <input type="text" className="Rectangle13" placeholder="Search" />            
+              <div className="Shape_search" ><i className="fas fa-search "></i></div> */}
           </div>
           <div className="Group2" >
               <h2>{user.userName} </h2>

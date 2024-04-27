@@ -60,10 +60,12 @@
 
 .page.previous {
     border-radius: 10px 0 0 10px;
+    background-color: #0000ff00;
 }
 
 .page.next {
     border-radius: 0 10px 10px 0;
+    background-color: #0000ff00;
 }
 
 .active {

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import { useEffect , useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts,getPostsCount } from "../../../redux/apiCalls/postApiCall";
+import { fetchRegisteredResearchs2,getRegisteredResearchs2Count,getRegisteredResearchs2ApprovedCount } from "../../../redux/apiCalls/postApiCall";
 
 
 const POST_PER_PAGE = 8;
@@ -17,33 +17,29 @@ const RegisteredResearch = () => {
 
     const dispatch = useDispatch();
     
-    const { posts } = useSelector(state => state.post);
+    const { RegisteredResearchs } = useSelector(state => state.RegisteredResearch);
     const { user } = useSelector(state => state.auth);
   
     useEffect(() => {
-      dispatch(fetchPosts(user.token,1,user._id));
+      dispatch(fetchRegisteredResearchs2(user.token,1,user._id));
 
     }, []);
 
-  const { postsCount  } = useSelector(state => state.post);
-
+  const { RegisteredResearchsCount,RegisteredResearchsApprovedCount  } = useSelector(state => state.RegisteredResearch);
   const [currentPage, setCurrentPage] = useState(1);
-  const pages = Math.ceil(postsCount / POST_PER_PAGE);
+  const pages = Math.ceil(RegisteredResearchsApprovedCount / POST_PER_PAGE);
 
   useEffect(() => {
-    dispatch(fetchPosts(user.token,currentPage,user._id));
-    
+    dispatch(fetchRegisteredResearchs2(user.token,currentPage,user._id));
     window.scrollTo(0, 0);
-    console.log('000000000000000')
-    console.log(currentPage)
   }, [currentPage]);
 
   useEffect(() => {
-    dispatch(getPostsCount(user.token,user._id));
+    dispatch(getRegisteredResearchs2Count(user.token,user._id));
+    dispatch(getRegisteredResearchs2ApprovedCount(user.token,user._id));
   }, []);
 
-
-
+  
 
 
 
@@ -58,16 +54,24 @@ const RegisteredResearch = () => {
                 <Category title='RegisteredResearch' />                
                  
                 <div class="box-container">
-                {posts.map(item => 
+                {RegisteredResearchs.map(item => 
                         <div class="box" key={item?._id}>
                         <div class="research" >
                             <div class="VertCard" >
                             <div class="Image" ></div>
                             <div class="Content" >
-                                <img src={item.ResearcherName.profilePhoto.url} alt="" className="Avatar" />
-                                <div class="Username" >{item.ResearcherName.userName}</div>
+                                {/* <img src={item.ResearcherName.profilePhoto.url} alt="" className="Avatar" />
+                                <div class="Username" >{item.ResearcherName.userName}</div> */}
+
+                                {item.ResearcherName && item.ResearcherName.profilePhoto &&
+                                  <img src={item.ResearcherName.profilePhoto.url} alt="" className="Avatar" />
+                                }
+                                
+                                {item.ResearcherName && item.ResearcherName.profilePhoto &&
+                                  <div class="Username" >{item.ResearcherName.userName}</div>
+                                }
                                 {/* <div class="ResearchName" >{item?.ResearcherName.userName}</div> */}
-                                <div class="ResearchName" >{item?.ResearchName}</div>
+                                <div class="ResearchName" >{item?.ResearchNameArabic}</div>
                             </div>
                             <div class="Button" >
                                 {/* <div class="Details" >Details  ----    </div> */}

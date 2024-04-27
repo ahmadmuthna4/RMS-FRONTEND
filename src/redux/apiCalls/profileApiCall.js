@@ -1,4 +1,4 @@
-import { profileActions } from "../slices/profileSlice";
+import { profileActions  } from "../slices/profileSlice";
 import { authActions } from "../slices/authSlice";
 import request from "../../utils/request";
 import { toast } from "react-toastify";
@@ -21,12 +21,7 @@ export function uploadProfilePhoto(newPhoto) {
     try {
       const { data } = await request.post(`/api/users/profile/profile-photo-upload`,newPhoto,{headers: {Authorization: "Bearer " + getState().auth.user.token,"Content-Type": "multipart/form-data",},});
       dispatch(profileActions.setProfilePhoto(data.profilePhoto));
-      toast.success(data.message, {
-        onClose: () => {
-          // Reload the page after the toast message is closed
-          window.location.reload();
-        }
-      });
+      
       // modify the user in local storage with new photo
       const user = JSON.parse(localStorage.getItem("userInfo"));
       user.profilePhoto = data?.profilePhoto;
@@ -41,24 +36,39 @@ export function uploadProfilePhoto(newPhoto) {
 export function updateProfile(userId,profile) {
   return async (dispatch, getState) => {
     try {
+      console.log("0000000000")
       const { data } = await request.put(
         `/api/users/profile/${userId}`,
         profile,
         {
           headers: {
             Authorization: "Bearer " + getState().auth.user.token,
+            // "Content-Type": "multipart/form-data",
           },
         }
       );
+      console.log("111111111111111")
 
       dispatch(profileActions.updateProfile(data));
-      dispatch(authActions.setUsername(data.username));
+      console.log("22222222222222")
+      dispatch(authActions.setUsername(data.userName));
+      
+
+      // toast.success("upsate successfuly :)", {
+      //   onClose: () => {
+      //     // Reload the page after the toast message is closed
+      //     window.location.reload();
+      //   }
+      // });
 
       // modify the user in local storage with new username
+      console.log("3333333")
       const user = JSON.parse(localStorage.getItem("userInfo"));
-      user.username = data?.username;
+      user.userName = data?.userName;
       localStorage.setItem("userInfo", JSON.stringify(user));
+      console.log("4444444444444")
     } catch (error) {
+      // toast.error("arrrrrrrrrrrrrrrrrrrr");
       toast.error(error.response.data.message);
     }
   };
@@ -127,3 +137,33 @@ export function updateProfile(userId,profile) {
 //     }
 //   };
 // }
+
+// delete user 
+export function deleteUser(id) {
+  return async (dispatch, getState) => {
+    try {
+      console.log("Deleting user with ID:", id);
+      console.log("User token:", getState().auth.user.token);
+
+      const { data } = await request.delete(`api/users/profile/${id}`, {
+        headers: {
+          Authorization: "Bearer " + getState().auth.user.token,
+        }
+      });
+
+      console.log("User deleted successfully:", data);
+      dispatch(profileActions.delete(data)); // Assuming this is the correct action creator usage
+      // toast.success(data);
+      toast.success(" profile has been deleted ", {
+        onClose: () => {
+          // Reload the page after the toast message is closed
+          window.location.reload();
+        }
+      });
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      toast.error(error.response ? error.response.data.message : "An error occurred while deleting the user.");
+    }
+  }
+}
+

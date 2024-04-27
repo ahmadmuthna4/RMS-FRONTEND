@@ -163,9 +163,9 @@ const Login = () => {
         if(userName.trim() === "") return toast.error("Username is required");
         if(email.trim() === "") return toast.error("Email is required");
         if(password.trim() === "") return toast.error("Password is required");
-        console.log("11111111")
+        console.log("000000")
         dispatch(registerUser({ userName, cardNumber,email, password }))    
-        console.log("2222222")  
+        console.log("11111")  
     }
     
 

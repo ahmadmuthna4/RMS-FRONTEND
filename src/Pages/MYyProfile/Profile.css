@@ -11,14 +11,14 @@
 }
 .box-container .box-content .profile_information{
     width: 972px;
-    height: 288px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
 
 }
 .box-container .box-content .profile_information .card_infrormation{
     width: 241px;
-    height: 271px;
+    height: 100%;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@
 }
 .box-container .box-content .my_researchs .card_infrormation{
     width: 38%;
-    height: 271px;
+    height: 100%;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -135,7 +135,7 @@
     font-size: 13px;
     font-weight: bold;
 }
-.box-container .box-content .my_researchs .card_infrormation .content_card button{
+.box-container .box-content .my_researchs .card_infrormation .content_card .buttton{
     width: 45%;
     cursor: pointer;
     display: block;
@@ -144,6 +144,7 @@
     border-radius: 5rem;
     color: #ffffff;
     transition: all 0.5s;
+    text-align: center;
 }
 .box-container .box-content .my_researchs .card_infrormation .content_card button:hover{   
     background: #ffffff;
@@ -192,6 +193,7 @@
     }
     .box-container .box-content .my_researchs .card_infrormation{
         width: 93%;
+        height: 100%;
 
     }
 
