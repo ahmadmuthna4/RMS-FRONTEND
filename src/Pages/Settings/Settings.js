@@ -2,7 +2,6 @@ import './Settings.css'
 import img2 from '../../assets/9.png'
 
 import { useEffect, useState } from "react";
-import swal from "sweetalert";
 import { ToastContainer,toast } from "react-toastify";
 
 import {
@@ -20,7 +19,6 @@ const Settings = () => {
     const [userName, setuserName] = useState(user.userNmae);
     const [password, setPassword] = useState(user.password);
 
-    const [UpdateProfile, setUpdateProfile] = useState(false);
     const [file, setFile] = useState(null);
 
     useEffect(() => {
@@ -48,19 +46,7 @@ const Settings = () => {
           });
     }
 
-      // Form Submit Handler
-    const formSubmitHandler2 = (e) => {
-        e.preventDefault();
-        // if(userName.trim() === "") return toast.error("userName is required");
-        console.log("ahmad")
-       
-        dispatch(updateProfile(user._id,{ userName, password }));
-        // const formData = new FormData();
-        // formData.append("userName", userName);
-        // formData.append("password", password);
-
-        // dispatch(updateProfile(user._id, formData));
-    }
+ 
 
 
   return (

@@ -73,14 +73,12 @@
 import  { useState } from 'react';
 import './form.css'
 
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ToastContainer,toast } from "react-toastify";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginUser } from "../../redux/apiCalls/authApiCall";
 import "react-toastify/dist/ReactToastify.css";
 
-import { registerUser } from "../../redux/apiCalls/authApiCall";
-import swal from "sweetalert";
 
 
 
@@ -143,7 +141,7 @@ const Login = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <a href="#">Forget Your Password?</a>
+                        {/* <a href="#">Forget Your Password?</a> */}
                         <button type="submit" >Sign In</button>
                         
                     </form>
