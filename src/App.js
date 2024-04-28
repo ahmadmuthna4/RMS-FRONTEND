@@ -46,7 +46,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
             <Route path="/Register" element={<Register />} />
-            <Route path="/Login" element={!user ? <Login /> : <Navigate to="/Dashboard" />} />
+            <Route path="/Login" element={!user ? <Login /> : <Navigate to="/" />} />
           {/* No Sidebar, Navbar, or Pagenation */}
         </Routes>
       </BrowserRouter>
@@ -61,9 +61,9 @@ const App = () => {
       
          <Routes>
             <Route path="/Register" element={<Register />} />
-            <Route path="/Login" element={!user ? <Login /> : <Navigate to="/Dashboard" />} />
+            <Route path="/Login" element={!user ? <Login /> : <Navigate to="/" />} />
 
-            <Route path="/Dashboard" >
+            <Route path="/" >
                 <Route index element={ user ? <PublishedResearch />: <Navigate to="/Login" />} />
                 <Route path="RegisteredResearch" element={user ?<RegisteredResearch />: <Navigate to="/Login" />} />
                 <Route path="ResearchNotAproved" element={user ?<ResearchersNotAproved />: <Navigate to="/Login" />} />

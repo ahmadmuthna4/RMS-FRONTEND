@@ -49,7 +49,7 @@ const Sidebar = () => {
         
         <nav className="navbar">
             <ul>
-              <li><Link to="/Dashboard" className={activeLink === 0 ? 'active' : ''} onClick={() => handleLinkClick(0)}>Dashboard</Link></li>
+              <li><Link to="/" className={activeLink === 0 ? 'active' : ''} onClick={() => handleLinkClick(0)}>Dashboard</Link></li>
               <li><Link to="/AddResearch" className={activeLink === 1 ? 'active' : ''} onClick={() => handleLinkClick(1)}>Add Research</Link></li>
               {/* <li><Link to="/Alerts" className={activeLink === 2 ? 'active' : ''} onClick={() => handleLinkClick(2)}>ALL ALERTS</Link></li> */}
               <li><Link to={`/profile/${user?._id}`} className={activeLink === 3 ? 'active' : ''} onClick={() => handleLinkClick(3)}>MY PROFILE</Link></li>
