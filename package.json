@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://ahmadmuthna4.github.io/RMS-FRONTEND",
+  "homepage": "https://ahmadmuthna4.github.io/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
