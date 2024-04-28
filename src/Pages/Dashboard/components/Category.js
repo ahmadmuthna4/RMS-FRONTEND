@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import  { useState,useEffect } from 'react';
 import { useSelector,useDispatch } from "react-redux";
-import { fetchuserss2,getuserss2Count } from "../../../redux/apiCalls/usersApiCall";
+import { getuserss2Count } from "../../../redux/apiCalls/usersApiCall";
 import { getModificationRrequestCount } from "../../../redux/apiCalls/modificationRrequestApiCall";
 
 
@@ -24,7 +24,7 @@ const Category = () => {
         
         dispatch(getModificationRrequestCount(user._id));
         // console.log(ModificationRrequestsCount)
-      }, []);
+      }, [dispatch, user._id, user?.isAdmin, user.token]);
 
     const handleLinkClick = (index) => {
         setActiveLink(index);
@@ -37,7 +37,7 @@ const Category = () => {
             <div class="category" >
 
             <Link to={''} onClick={() => handleLinkClick(0)} >
-                    <div  className={`Frame655 ${activeLink == 0 ? 'active' : ''}`}  >
+                    <div  className={`Frame655 ${activeLink === 0 ? 'active' : ''}`}  >
                             <div class="Frame64" >
                             <div class="Researchers2" >Published  Research<br/></div>
                             </div>
@@ -56,7 +56,7 @@ const Category = () => {
 
                 
             <Link to={'/RegisteredResearch'} onClick={() => handleLinkClick(1)} >
-                <div className={`Frame655 ${activeLink == 1 ? 'active' : ''}`}  >
+                <div className={`Frame655 ${activeLink === 1 ? 'active' : ''}`}  >
                     <div class="Frame64" >
                     <div class="Researchers2" >Registered Research<br/></div>
                     </div>
@@ -72,7 +72,7 @@ const Category = () => {
                 </div>
             </Link> 
             <Link to={'/ResearchNotAproved'} onClick={() => handleLinkClick(2)} >
-                <div className={`Frame655 ${activeLink == 2 ? 'active' : ''}`}  >
+                <div className={`Frame655 ${activeLink === 2 ? 'active' : ''}`}  >
                     <div class="Frame64" >
                     <div class="Researchers2" >Not Aproved<br/></div>
                     </div>
@@ -90,7 +90,7 @@ const Category = () => {
 
             {user?.isAdmin ? 
                 <Link to={'/Researchers'} onClick={() => handleLinkClick(3)}  >
-                    <div className={`Frame655 ${activeLink == 3 ? 'active' : ''}`} >
+                    <div className={`Frame655 ${activeLink === 3 ? 'active' : ''}`} >
                         <div class="Frame64" >
                         <div class="Researchers2" style={{ marginTop: '20px' }} >Researchers        <br/></div>
                         </div>
@@ -107,7 +107,7 @@ const Category = () => {
                 </Link> 
                : ''}
                <Link to={'/ModificationRrequest'} onClick={() => handleLinkClick(4)}  >
-                    <div className={`Frame655 ${activeLink == 4 ? 'active' : ''}`} >
+                    <div className={`Frame655 ${activeLink === 4 ? 'active' : ''}`} >
                         <div class="Frame64" >
                         <div class="Researchers2"  >Modification Rrequest<br/></div>
                         </div>
