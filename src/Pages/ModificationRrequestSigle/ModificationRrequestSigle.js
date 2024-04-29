@@ -25,7 +25,6 @@ const ModificationRrequestDetails = () => {
     const { user } = useSelector((state) => state.auth);
     console.log(user.token)
 
-    const [isPopupOpen, setPopupOpen] = useState(false);
 
     // const togglePopup = () => {
     //   setPopupOpen(!isPopupOpen);
@@ -34,7 +33,6 @@ const ModificationRrequestDetails = () => {
     const { id } = useParams();
     // const post = posts.find((p) => p._id === +id);
 
-    const [file, setFile] = useState(null);
     const [Members, setMembers] = useState([]);
     const [showSpinner, setShowSpinner] = useState(false);
     
@@ -111,7 +109,7 @@ const ModificationRrequestDetails = () => {
  
 var ResearchNameArabic =ModificationRrequest?.ResearchName
   const modificationRrequest = () => {
-    if (ModificationRrequest?.Type=="تغيير عنوان بحث" ) {
+    if (ModificationRrequest?.Type==="تغيير عنوان بحث" ) {
       dispatch(updateRegisteredResearchRequest({Type, ResearchNameArabic,ResearchNameEnglish },ModificationRrequest?.Research?._id));
       console.log("vvvvvvvvvvvvvvvvv")
       console.log(ResearchNameArabic)
@@ -119,7 +117,7 @@ var ResearchNameArabic =ModificationRrequest?.ResearchName
       console.log(ModificationRrequest?.ResearchName)
       console.log(ResearchNameArabic)
       
-    } else if (ModificationRrequest?.Type=="إضافة باحث") {
+    } else if (ModificationRrequest?.Type==="إضافة باحث") {
       console.log(" sssssssssssss " )
       dispatch(updateRegisteredResearchRequest({Type,researchMembers },ModificationRrequest?.Research?._id));
       console.log(researchMembers)

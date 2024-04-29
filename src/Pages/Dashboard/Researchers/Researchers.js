@@ -13,7 +13,6 @@ import { deleteUser } from "../../../redux/apiCalls/profileApiCall";
 
 
 
-const POST_PER_PAGE = 8;
 
 
 const Researchers = () => {
@@ -38,7 +37,6 @@ const Researchers = () => {
 
     }, [dispatch,user?.isAdmin,user.token]);
 
-  const { userssCount  } = useSelector(state => state.users);
   const [currentPage] = useState(1);
   // const pages = Math.ceil(userssCount / POST_PER_PAGE);
 

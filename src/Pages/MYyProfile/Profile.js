@@ -9,7 +9,7 @@ import {
 import "./Profile.css"
 import img1 from "../../assets/bg3.jpg"
 import {  useEffect } from "react";
-import { useParams,useNavigate,Link } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 
 import {
     // deleteProfile,
@@ -32,7 +32,6 @@ const Profile = () => {
 
 
     const dispatch = useDispatch();
-    const { profile} = useSelector((state) => state.profile);
     const { user} = useSelector((state) => state.auth);
     const { RegisteredResearchs} = useSelector((state) => state.RegisteredResearch);
     const { RegisteredResearchsApprovedCount} = useSelector((state) => state.RegisteredResearch);
@@ -50,7 +49,7 @@ const Profile = () => {
         dispatch(getPublishedResearchs2Count(user.token,id));
         console.log('PublishedResearchs')
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [id,dispatch,user.token]);
 
    
 
