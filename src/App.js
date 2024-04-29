@@ -45,7 +45,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
             <Route path="/Register" element={<Register />} />
-            <Route path="/Login" element={!user ? <Login /> : <Navigate to="/" />} />
+            <Route path="/" element={!user ? <Login /> : <Navigate to="/" />} />
           {/* No Sidebar, Navbar, or Pagenation */}
         </Routes>
       </BrowserRouter>
