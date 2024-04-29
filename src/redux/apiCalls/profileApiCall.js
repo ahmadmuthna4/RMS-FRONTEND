@@ -11,6 +11,7 @@ export function getUserProfile(userId) {
       dispatch(profileActions.setProfile(data));
     } catch (error) {
       toast.error(error.response.data.message);
+      console.log(error.response.data)
     }
   };
 }

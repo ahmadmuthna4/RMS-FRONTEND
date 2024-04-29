@@ -183,7 +183,7 @@ const CreateRegisteredResearch2 = () => {
               <option value="علوم الحاسوب">علوم الحاسوب</option>
               <option value="الرياضيات">الرياضيات</option>
               <option value="الاحصاء">الاحصاء</option>
-              <option value="الشيكات">الشيكات</option>
+              <option value="الشيكات">الشبكات</option>
               <option value="الامن السيبراني">الامن السيبراني</option>
             </select>
 

@@ -1,5 +1,4 @@
 import './RegisteredResearch.css'
-import img1 from "../../../assets/9.png"
 import Category from '../components/Category'
 import { ToastContainer } from "react-toastify";
 import Pagenation from '../../../components/Pagenation/Pagenation'
@@ -23,21 +22,21 @@ const RegisteredResearch = () => {
     useEffect(() => {
       dispatch(fetchRegisteredResearchs2(user.token,1,user._id));
 
-    }, []);
+    }, [dispatch,user._id,user.token]);
 
-  const { RegisteredResearchsCount,RegisteredResearchsApprovedCount  } = useSelector(state => state.RegisteredResearch);
+  const { RegisteredResearchsApprovedCount  } = useSelector(state => state.RegisteredResearch);
   const [currentPage, setCurrentPage] = useState(1);
   const pages = Math.ceil(RegisteredResearchsApprovedCount / POST_PER_PAGE);
 
   useEffect(() => {
     dispatch(fetchRegisteredResearchs2(user.token,currentPage,user._id));
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [currentPage,dispatch,user._id,user.token]);
 
   useEffect(() => {
     dispatch(getRegisteredResearchs2Count(user.token,user._id));
     dispatch(getRegisteredResearchs2ApprovedCount(user.token,user._id));
-  }, []);
+  }, [dispatch,user._id,user.token]);
 
   
 

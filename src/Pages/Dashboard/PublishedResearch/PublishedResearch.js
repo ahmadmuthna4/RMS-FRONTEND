@@ -164,7 +164,6 @@
 
 
 import './PublishedResearch.css'
-import img1 from "../../../assets/9.png"
 import Category from '../components/Category'
 import { ToastContainer } from "react-toastify";
 import Pagenation from '../../../components/Pagenation/Pagenation'
@@ -188,7 +187,7 @@ const PublishedResearch = () => {
     useEffect(() => {
       dispatch(fetchPublishedResearchs2(user.token,1,user._id));
 
-    }, []);
+    }, [dispatch,user._id,user.token]);
 
   const { PublishedResearchsCount  } = useSelector(state => state.PublishedResearch);
   const [currentPage, setCurrentPage] = useState(1);
@@ -197,11 +196,11 @@ const PublishedResearch = () => {
   useEffect(() => {
     dispatch(fetchPublishedResearchs2(user.token,currentPage,user._id));
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [currentPage,dispatch,user._id,user.token]);
 
   useEffect(() => {
     dispatch(getPublishedResearchs2Count(user.token,user._id));
-  }, []);
+  }, [dispatch,user._id,user.token]);
 
   
 

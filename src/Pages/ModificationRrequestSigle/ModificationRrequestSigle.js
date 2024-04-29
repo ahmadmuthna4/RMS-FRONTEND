@@ -5,7 +5,6 @@ import jsPDF from "jspdf";
 
 // import { posts } from "./dummyData";
 import "./ModificationRrequestSigle.css";
-import { toast } from "react-toastify";
 
 import {
   fetchSingleModificationRrequest,
@@ -28,14 +27,13 @@ const ModificationRrequestDetails = () => {
 
     const [isPopupOpen, setPopupOpen] = useState(false);
 
-    const togglePopup = () => {
-      setPopupOpen(!isPopupOpen);
-    };
+    // const togglePopup = () => {
+    //   setPopupOpen(!isPopupOpen);
+    // };
         
     const { id } = useParams();
     // const post = posts.find((p) => p._id === +id);
 
-    const [updateRegisteredResearch2, setUpdateRegisteredResearch2] = useState(false);
     const [file, setFile] = useState(null);
     const [Members, setMembers] = useState([]);
     const [showSpinner, setShowSpinner] = useState(false);

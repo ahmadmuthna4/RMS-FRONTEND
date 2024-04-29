@@ -1,17 +1,14 @@
 
-import swal from "sweetalert";
-import { ToastContainer,toast } from "react-toastify";
 
 import {
     // deleteProfile,
     // getUserProfile,
-    uploadProfilePhoto,
+    // uploadProfilePhoto,
   } from "../../redux/apiCalls/profileApiCall";
   import { useDispatch, useSelector } from "react-redux";
 import "./Profile.css"
 import img1 from "../../assets/bg3.jpg"
-import img2 from "../../assets/0.jpg"
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import { useParams,useNavigate,Link } from "react-router-dom";
 
 import {
@@ -51,13 +48,12 @@ const Profile = () => {
         dispatch(getRegisteredResearchs2ApprovedCount(user.token,id));
         dispatch(fetchPublishedResearchs2(user.token,1,id));
         dispatch(getPublishedResearchs2Count(user.token,id));
-        console.log(PublishedResearchs)
+        console.log('PublishedResearchs')
         window.scrollTo(0, 0);
     }, [id]);
 
    
 
-    const navigate = useNavigate();
   return (
     <>
     
@@ -67,9 +63,9 @@ const Profile = () => {
                 <div class="profile_information">
 
                     <div class="card_infrormation">
-                        <img src={profile?.profilePhoto?.url} alt="" className="Avatar" />
-                        <h2>{profile?.userName}</h2>
-                        <p>{profile?.email}</p>
+                        <img src={user?.profilePhoto?.url} alt="" className="Avatar" />
+                        <h2>{user?.userName}</h2>
+                        <p>{user?.email}</p>
                         
                         <Link
                                 className="buttton"
@@ -92,7 +88,7 @@ const Profile = () => {
                             <h3>Published research  </h3>
 \                            <Link
                                 className="buttton"
-                                to={`/Dashboard`}>
+                                to={`/`}>
                                 <p>({PublishedResearchsCount}) All</p>
                             </Link>
                         </div>
@@ -100,7 +96,7 @@ const Profile = () => {
                         {PublishedResearchs.map((item) => (
                             
                             <div class="content_card" key={item?._id}>
-                                <img src={profile?.profilePhoto?.url} alt="" className="Avatar" /> 
+                                <img src={user?.profilePhoto?.url} alt="" className="Avatar" /> 
                                 <h3>{item?.ResearchName?.substring(0, 7)}..</h3>
                                 <Link
                                     className="buttton"
@@ -121,7 +117,7 @@ const Profile = () => {
                             {/* <p>({RegisteredResearchsApprovedCount}) All</p> */}
                             <Link
                                 className="buttton"
-                                to={`/Dashboard/RegisteredResearch`}>
+                                to={`/RegisteredResearch`}>
                                 <p>({RegisteredResearchsApprovedCount}) All</p>
                             </Link>
                         </div>
@@ -130,7 +126,7 @@ const Profile = () => {
                         {RegisteredResearchs.map((item) => (
                         
                         <div class="content_card" key={item?._id}>
-                            <img src={profile?.profilePhoto?.url} alt="" className="Avatar" /> 
+                            <img src={user?.profilePhoto?.url} alt="" className="Avatar" /> 
                             <h3>{item?.ResearchNameEnglish?.substring(0, 7)}..</h3>
                             <Link
                                 className="buttton"

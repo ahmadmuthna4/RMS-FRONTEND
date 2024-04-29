@@ -1,5 +1,4 @@
 import './ModificationRrequest'
-import img1 from "../../../assets/9.png"
 import Category from '../components/Category'
 import { ToastContainer } from "react-toastify";
 import Pagenation from '../../../components/Pagenation/Pagenation'
@@ -7,7 +6,6 @@ import { Link } from "react-router-dom";
 
 import { useEffect , useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRegisteredResearchs2,getRegisteredResearchs2Count } from "../../../redux/apiCalls/postApiCall";
 import { fetchModificationRrequest,getModificationRrequestCount } from "../../../redux/apiCalls/modificationRrequestApiCall";
 
 
@@ -24,7 +22,7 @@ const RegisteredResearch = () => {
     useEffect(() => {
       dispatch(fetchModificationRrequest(1,user._id));
 
-    }, []);
+    }, [dispatch,user._id]);
 
   const { ModificationRrequestsCount  } = useSelector(state => state.ModificationRrequest);
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,11 +33,11 @@ const RegisteredResearch = () => {
     console.log(user.token)
     console.log(user._id)
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [currentPage,dispatch,user._id,user.token]);
 
   useEffect(() => {
     dispatch(getModificationRrequestCount(user._id));
-  }, []);
+  }, [dispatch,user._id]);
 
   
 

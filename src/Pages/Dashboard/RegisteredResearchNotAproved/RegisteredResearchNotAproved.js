@@ -1,5 +1,4 @@
 import '../RegisteredResearch/RegisteredResearch.css'
-import img1 from "../../../assets/9.png"
 import Category from '../components/Category'
 import { ToastContainer } from "react-toastify";
 import Pagenation from '../../../components/Pagenation/Pagenation'
@@ -31,7 +30,7 @@ const RegisteredResearch = () => {
   useEffect(() => {
     dispatch(fetchResearchNotAproved(user.token,currentPage,user._id));
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [currentPage,dispatch,user._id,user.token]);
 
   
   

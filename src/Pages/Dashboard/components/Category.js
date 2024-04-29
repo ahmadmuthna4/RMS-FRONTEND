@@ -36,7 +36,7 @@ const Category = () => {
 
             <div class="category" >
 
-            <Link to={''} onClick={() => handleLinkClick(0)} >
+            <Link to={'/'} onClick={() => handleLinkClick(0)} >
                     <div  className={`Frame655 ${activeLink === 0 ? 'active' : ''}`}  >
                             <div class="Frame64" >
                             <div class="Researchers2" >Published  Research<br/></div>

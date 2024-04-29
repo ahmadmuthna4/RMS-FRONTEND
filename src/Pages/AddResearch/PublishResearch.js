@@ -71,7 +71,7 @@ import React, { useState, useEffect } from "react";
 import "./PublishResearch.css";
 import { useSelector, useDispatch } from "react-redux";
 
-import { useNavigate,useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createPublishedResearch2 } from "../../redux/apiCalls/postApiCall2";
 import { RotatingLines } from "react-loader-spinner";
 import { ToastContainer, toast } from "react-toastify";
@@ -80,7 +80,6 @@ const CreatePublishResearch2 = () => {
   const dispatch = useDispatch();
   const { loading, isPublishedResearch2Created } = useSelector((state) => state.PublishedResearch);
   const { RegisteredResearch } = useSelector((state) => state.RegisteredResearch);
-  let { id } = useParams();
 
 
   const [ResearchName, setResearchName] = useState("");

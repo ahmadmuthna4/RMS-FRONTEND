@@ -21,7 +21,7 @@ const CreateModificationRrequest = () => {
     window.scrollTo(0, 0);
     dispatch(fetchSingleRegisteredResearch2(id));
     console.log(RegisteredResearch?.researchMembers)
-  }, [id]);
+  }, [id,RegisteredResearch?.researchMembers, dispatch]);
   const [Type, setType] = useState("");
   const [ResearchName, setResearchName] = useState("");
   const [memberIdToDelete, setmemberIdToDelete] = useState("");
@@ -62,9 +62,9 @@ const CreateModificationRrequest = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     if (Type.trim() === "") return toast.error("Type is required000000000000000");
-    if (Type =="تغيير عنوان بحث") {
+    if (Type ==="تغيير عنوان بحث") {
       dispatch(createModificationRrequest({ Type, ResearchName },id));
-    } else if (Type =="إضافة باحث") {
+    } else if (Type ==="إضافة باحث") {
       dispatch(createModificationRrequest({ Type,  researchMembers },id));
     }else{
       dispatch(createModificationRrequest({ Type,  memberIdToDelete },id));
@@ -75,7 +75,7 @@ const CreateModificationRrequest = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (isModificationRrequestsCreated) {
-      navigate("/Dashboard/ResearchNotAproved");
+      navigate("/ModificationRrequest");
     }
   }, [isModificationRrequestsCreated, navigate]);
 
@@ -105,7 +105,7 @@ const CreateModificationRrequest = () => {
 
 
 
-      {Type =="تغيير عنوان بحث" ? 
+      {Type ==="تغيير عنوان بحث" ? 
                 <input
                   onChange={(e) => setResearchName(e.target.value)}
                   value={ResearchName}
@@ -114,7 +114,7 @@ const CreateModificationRrequest = () => {
                   className="create-post-input"
                 />
                 :
-                Type =="إضافة باحث" ?
+                Type ==="إضافة باحث" ?
                 <>
                     {researchMembers.map((member, index) => (
                           <div key={index}>

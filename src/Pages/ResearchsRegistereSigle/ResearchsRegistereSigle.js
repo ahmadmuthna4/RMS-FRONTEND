@@ -2,11 +2,9 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState,useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import Spinner from 'react-spinner';
 
 // import { posts } from "./dummyData";
 import "./ResearchsRegistereSigle.css";
-import { toast } from "react-toastify";
 import { ResearchAproved } from "../../../src/redux/apiCalls/ResearchNotAprovedApiCall";
 
 import {
@@ -34,13 +32,11 @@ const RegisteredResearch2Details = () => {
     const { id } = useParams();
     // const post = posts.find((p) => p._id === +id);
 
-    const [updateRegisteredResearch2, setUpdateRegisteredResearch2] = useState(false);
-    const [file, setFile] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(fetchSingleRegisteredResearch2(id));
-      }, [id]);
+      }, [id,dispatch]);
    
 
     const Aproved = (id) => {
@@ -85,7 +81,7 @@ const RegisteredResearch2Details = () => {
 
           
       
-          pdf.save('invoice.pdf');
+          pdf.save('file.pdf');
           setShowSpinner(false);
         } catch (error) {
           console.error('Error generating PDF:', error);
@@ -137,6 +133,12 @@ const RegisteredResearch2Details = () => {
                             <th className="th">التوقيع</th>
                             <th className="th">جهة الانتساب</th>
                         </tr>
+                        <tr>
+                            <td className="td">{RegisteredResearch?.ResearcherName?.userName}</td>
+                            <td className="td">أستاذ   </td>
+                            <td className="td"></td>
+                            <td className="td"> علوم الحاسوب والرياضيات / قسم الرياضيات </td>
+                        </tr>
 
                         {RegisteredResearch?.researchMembers?.map(item =>
                                 <tr>
@@ -152,7 +154,7 @@ const RegisteredResearch2Details = () => {
 
                     <section class="description">
                         <h2>موجز البحث واهدافه</h2>
-                        <h2 dir="ltr">{RegisteredResearch?.ResearchSummaryAndObjectives}</h2>
+                        <h2 dir="rtl">{RegisteredResearch?.ResearchSummaryAndObjectives}</h2>
                     </section>
                     <table>
                         <tr>
@@ -276,15 +278,15 @@ const RegisteredResearch2Details = () => {
              : ''
             }
           
-          {user?.isAdmin ? 
-          <Link className="Publish" onClick={() => Aproved(id)}  to={`/Dashboard/RegisteredResearch` }  >
+          {user?.isAdmin && !RegisteredResearch?.isApproved ? 
+          <Link className="Publish" onClick={() => Aproved(id)}  to={`/RegisteredResearch` }  >
               APROVED
           </Link>
                : ''
                }
 
           {user?.isAdmin ? 
-          <Link className="Publish" onClick={() => Delete(RegisteredResearch?._id)}  to={`/Dashboard/RegisteredResearch` }  >
+          <Link className="Publish" onClick={() => Delete(RegisteredResearch?._id)}  to={`/RegisteredResearch` }  >
               DELETE
           </Link>
                : ''

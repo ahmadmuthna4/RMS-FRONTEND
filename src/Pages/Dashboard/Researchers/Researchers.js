@@ -2,7 +2,7 @@ import './Researchers.css'
 import Category from '../components/Category'
 
 import { ToastContainer } from "react-toastify";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 import { useEffect , useState} from "react";
@@ -36,20 +36,20 @@ const Researchers = () => {
     }
       
 
-    }, []);
+    }, [dispatch,user?.isAdmin,user.token]);
 
   const { userssCount  } = useSelector(state => state.users);
-  const [currentPage, setCurrentPage] = useState(1);
-  const pages = Math.ceil(userssCount / POST_PER_PAGE);
+  const [currentPage] = useState(1);
+  // const pages = Math.ceil(userssCount / POST_PER_PAGE);
 
   useEffect(() => {
     dispatch(fetchuserss2(user.token,currentPage,user._id));
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [currentPage,dispatch,user._id,user.token]);
 
   useEffect(() => {
     dispatch(getuserss2Count(user.token));
-  }, []);
+  }, [dispatch,user.token]);
 
   
 

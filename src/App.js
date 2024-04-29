@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 
 
 import Sidebar from './components/Sidebar/Sidebar'
-import Pagenation from './components/Pagenation/Pagenation'
 import Navbar from './components/Navbar/Navbar'
 
 // Dashboard
