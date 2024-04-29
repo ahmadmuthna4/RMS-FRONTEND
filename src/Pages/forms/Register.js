@@ -187,7 +187,7 @@ const Login = () => {
             icon: "success"
         }).then(isOk => {
             if(isOk) {
-               navigate("/login");
+               navigate("/");
             }
         })
     }
